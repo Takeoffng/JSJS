@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Decision Making & Recursion</title>
+</head>
+<body>
+    <h1>JavaScript Decision Making & Recursion Examples</h1>
+
+    <!-- Button to trigger Leap Year Checker -->
+    <button onclick="checkLeapYear()">Check Leap Year</button>
+    
+    <!-- Button to trigger Ticket Pricing -->
+    <button onclick="calculateTicketPrice()">Calculate Ticket Price</button>
+
+    <!-- Button to trigger Fibonacci Sequence -->
+    <button onclick="findFibonacci()">Find Fibonacci Number</button>
+
+    <!-- Button to trigger Power Calculation -->
+    <button onclick="calculatePower()">Calculate Power</button>
+
+    <script>
+        function isLeapYear(year) {
+            if ((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function checkLeapYear() {
+            let year = prompt("Enter a year:");
+            year = parseInt(year);
+            if (isLeapYear(year)) {
+                alert(year + " is a leap year.");
+            } else {
+                alert(year + " is not a leap year.");
+            }
+        }
+
+        function getTicketPrice(age) {
+            if (age <= 12) {
+                return 10;
+            } else if (age >= 13 && age <= 17) {
+                return 15;
+            } else {
+                return 20;
+            }
+        }
+
+        function calculateTicketPrice() {
+            let age = prompt("Enter your age:");
+            age = parseInt(age);
+            let price = getTicketPrice(age);
+            alert("The ticket price is $" + price + ".");
+        }
+
+        function fibonacci(n) {
+            if (n <= 0) {
+                return 0;
+            } else if (n === 1) {
+                return 1;
+            } else {
+                return fibonacci(n - 1) + fibonacci(n - 2);
+            }
+        }
+
+        function findFibonacci() {
+            let n = prompt("Enter the position in the Fibonacci sequence:");
+            n = parseInt(n);
+            let result = fibonacci(n);
+            alert("The " + n + "th Fibonacci number is " + result + ".");
+        }
+
+        function power(base, exponent) {
+            if (exponent === 0) {
+                return 1;
+            } else {
+                return base * power(base, exponent - 1);
+            }
+        }
+
+        function calculatePower() {
+            let base = prompt("Enter the base number:");
+            let exponent = prompt("Enter the exponent:");
+            base = parseInt(base);
+            exponent = parseInt(exponent);
+            let result = power(base, exponent);
+            alert(base + " raised to the power of " + exponent + " is " + result + ".");
+        }
+    </script>
+</body>
+</html>
